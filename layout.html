@@ -1,0 +1,81 @@
+<div class="document-container">
+  <div class="document-header">
+    <h2>Document Type</h2>
+    <select id="document-type">
+      <option value="receipt">Receipt</option>
+      <option value="bank-statement">Bank Statement</option>
+      <option value="tax-report">Tax Report</option>
+    </select>
+  </div>
+  <div class="document-content">
+    <div class="receipt" id="receipt">
+      <h2>Receipt</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td>2022-01-01</td>
+          <td>Item 1</td>
+          <td>2</td>
+          <td>$10.00</td>
+          <td>$20.00</td>
+        </tr>
+      </table>
+    </div>
+    <div class="bank-statement" id="bank-statement" style="display: none;">
+      <h2>Bank Statement</h2>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Transaction Type</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
+        <tr>
+          <td>2022-01-01</td>
+          <td>Deposit</td>
+          <td>$100.00</td>
+          <td>$100.00</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tax-report" id="tax-report" style="display: none;">
+      <h2>Tax Report</h2>
+      <table>
+        <tr>
+          <th>Tax Year</th>
+          <th>Tax Type</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>2022</td>
+          <td>Income Tax</td>
+          <td>$1000.00</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script>
+    document.getElementById("document-type").addEventListener("change", function() {
+       selectedValue = this.value;
+      if (selectedValue === "receipt") {
+        document.getElementById("receipt").style.display = "block";
+        document.getElementById("bank-statement").style.display = "none";
+        document.getElementById("tax-report").style.display = "none";
+      } else if (selectedValue === "bank-statement") {
+        document.getElementById("receipt").style.display = "none";
+        document.getElementById("bank-statement").style.display = "block";
+        document.getElementById("tax-report").style.display = "none";
+      } else if (selectedValue === "tax-report") {
+        document.getElementById("receipt").style.display = "none";
+        document.getElementById("bank-statement").style.display = "none";
+        document.getElementById("tax-report").style.display = "block";
+      }
+    });
+  </script>
+</div>
